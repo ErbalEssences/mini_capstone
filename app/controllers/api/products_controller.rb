@@ -11,12 +11,15 @@ class Api::ProductsController < ApplicationController
                           price: params[:price],
                           description: params[:description],
                           material: params[:material],
-                          type: params[:type],
                           image_url: params[:image_url],
+                          in_stock: params[:in_stock],
                           style: params[:style]
                           )
-    @product.save
-    render 'show.json.jbuilder'
+    if @product.save
+      render 'show.json.jbuilder'
+    else
+      render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -31,10 +34,14 @@ class Api::ProductsController < ApplicationController
     @product.image_url = params[:image_url] || @product.image_url
     @product.description = params[:description] || @product.description
     @product.material = params[:material] || @product.material
-    @product.type = params[:type] || @product.type
+    @product.in_stock = params[:in_stock] || @product.in_stock
     @product.style = params[:style] || @product.style
-    @product.save
-    render 'show.json.jbuilder'
+
+    if @product.save
+      render 'show.json.jbuilder'
+    else 
+      render json: {message: @product.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def destroy
