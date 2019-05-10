@@ -6,6 +6,7 @@ json.description product.description
 json.material product.material
 json.in_stock product.in_stock
 json.style product.style
+json.supplier_id product.supplier_id
 
 json.is_discounted product.is_discounted?
 json.tax product.tax
