@@ -11,4 +11,17 @@
 #   {name: "Other Human", email: "other@gmail.com", phone_number: "876-212-8754"}
 # ])
 
-Product.update.all
+# info = Product.all.pluck(:image_url, :id)
+
+# info.each do |info|
+#   image = Image.create({url: info[0], product_id: info[1]})
+#   image.save
+# end
+
+
+  image = Image.create({url: "https://images-na.ssl-images-amazon.com/images/I/31RT0OMIJ6L.jpg", product_id: 1})
+  image.save
+
+
+  image = Image.create({url: "https://cdn.shopify.com/s/files/1/0864/0890/products/High_Low_Mountain_Necklace_grande.png?v=1522653192", product_id: 1})
+  image.save
