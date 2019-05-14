@@ -17,5 +17,9 @@ Rails.application.routes.draw do
     get '/images/:id' => 'images#show'
     patch '/images/:id' => 'images#update' 
     delete '/images/:id' => 'images#destroy' 
+
+    post "/users" => "users#create"
+
+    post "/sessions" => "sessions#create"
   end
 end

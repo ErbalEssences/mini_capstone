@@ -24,3 +24,5 @@ end
 json.images do
   json.partial! product.images, partial: "api/suppliers/images", as: :image
 end
+
+json.current_user current_user

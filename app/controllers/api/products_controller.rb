@@ -1,6 +1,7 @@
 class Api::ProductsController < ApplicationController
 
   def index
+
     @products = Product.all
     search_term = params[:search]
     discounted = params[:discount]
@@ -29,6 +30,7 @@ class Api::ProductsController < ApplicationController
     end
 
     render 'index.json.jbuilder'
+
   end
 
 
