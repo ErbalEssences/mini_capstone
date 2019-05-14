@@ -1,7 +1,6 @@
 json.id product.id
 json.name product.name
 json.price product.price
-# json.image_url product.image_url
 json.description product.description
 json.material product.material
 json.in_stock product.in_stock
@@ -18,5 +17,10 @@ json.formated do
   json.total number_to_currency(product.total)
 end
 
-json.supplier_name product.supplier.name
-json.images product.images
+json.supplier_name do
+  json.partial! product.supplier, partial: "api/suppliers/supplier", as: :supplier
+end
+
+json.images do
+  json.partial! product.images, partial: "api/suppliers/images", as: :image
+end

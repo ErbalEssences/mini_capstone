@@ -38,12 +38,12 @@ class Api::ProductsController < ApplicationController
                           price: params[:price],
                           description: params[:description],
                           material: params[:material],
-                          image_url: params[:image_url],
                           in_stock: params[:in_stock],
                           style: params[:style],
                           supplier_id: params[:supplier_id]
                           )
     if @product.save
+
       render 'show.json.jbuilder'
     else
       render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
@@ -55,11 +55,10 @@ class Api::ProductsController < ApplicationController
     render 'show.json.jbuilder'
   end
 
-  def patch
+  def update
     @product = Product.find(params[:id])
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
-    @product.image_url = params[:image_url] || @product.image_url
     @product.description = params[:description] || @product.description
     @product.material = params[:material] || @product.material
     @product.in_stock = params[:in_stock] || @product.in_stock
@@ -77,6 +76,6 @@ class Api::ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    render json: {message: "Successfully destroyed recipe"}
+    render json: {message: "Successfully destroyed products"}
   end
 end

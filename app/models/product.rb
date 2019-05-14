@@ -4,18 +4,19 @@ class Product < ApplicationRecord
 
   validates :price, presence: true
   validates :price, numericality: { greater_than: 0, less_then: 10000000 }
-
   validates :description, presence: true
-  # validates :description, length: { in: 10..200 }
-  validates :image_url, length: { maximum: 255 }
 
-  def supplier
-    Supplier.find_by(id: supplier_id)
-  end
 
-  def images
-    Image.where(product_id: id)
-  end
+  belongs_to :supplier
+  # long hand
+  # def supplier
+  #   Supplier.find_by(id: supplier_id)
+  # end
+  has_many :images
+  # long hand
+  # def images
+  #   Image.where(product_id: id)
+  # end
 
   def is_discounted?
     price < 20

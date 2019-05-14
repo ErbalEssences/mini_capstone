@@ -1,7 +1,7 @@
 class Image < ApplicationRecord
+  
+  validates :url, presence: true
 
-  def product
-    Product.find_by(id: product_id)
-  end
+  belongs_to :product
 
 end
