@@ -22,7 +22,6 @@ json.supplier_name do
 end
 
 json.images do
-  json.partial! product.images, partial: "api/suppliers/images", as: :image
+  json.array! product.images, partial: "api/images/image", as: :image
 end
 
-json.current_user current_user

@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   validates :price, numericality: { greater_than: 0, less_then: 10000000 }
   validates :description, presence: true
 
-
+  has_many :orders
   belongs_to :supplier
   # long hand
   # def supplier
