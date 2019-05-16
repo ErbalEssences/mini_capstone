@@ -1,5 +1,6 @@
 class Api::SuppliersController < ApplicationController
-
+  before_action :authenticate_admin
+  
   def index
     @suppliers = Supplier.all
     render 'index.json.jbuilder'
