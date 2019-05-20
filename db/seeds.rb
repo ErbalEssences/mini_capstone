@@ -27,3 +27,32 @@
 
   # image = Image.create({url: "https://cdn.shopify.com/s/files/1/0864/0890/products/High_Low_Mountain_Necklace_grande.png?v=1522653192", product_id: 1})
   # image.save
+
+# Category.create(name: "Earings")
+# Category.create(name: "Rings")
+# Category.create(name: "Necklace")
+# Category.create(name: "Bracelet")
+# Category.create(name: "Long")
+# Category.create(name: "Short")
+# Category.create(name: "Silver")
+# Category.create(name: "Gold")
+# Category.create(name: "Resin")
+# Category.create(name: "Flowers")
+
+
+ProductCategory.create(product_id: 6, category_id: 1)
+ProductCategory.create(product_id: 6, category_id: 5)
+ProductCategory.create(product_id: 6, category_id: 9)
+ProductCategory.create(product_id: 6, category_id: 10)
+                  
+
+ProductCategory.create(product_id: 1, category_id: 3)
+ProductCategory.create(product_id: 1, category_id: 6)
+ProductCategory.create(product_id: 1, category_id: 7)
+                 
+
+ProductCategory.create(product_id: 2, category_id: 3)
+ProductCategory.create(product_id: 2, category_id: 4)
+ProductCategory.create(product_id: 2, category_id: 9)
+ProductCategory.create(product_id: 2, category_id: 10)
+                  
